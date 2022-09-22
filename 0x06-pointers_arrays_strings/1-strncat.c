@@ -1,23 +1,23 @@
-#include "holberton.h"
-#include <stdio.h>
+#include "main.h"
 /**
- * _strncat - concatenates two strings since n.
- * @dest: string to destiny
- * @src: string to source
- * @n: value to n
- * Return: Return a concatenate string
+ *_strncat - concatenate two strings but add inputted number of bytes
+ *@dest: string to be appended upon
+ *@src: string to be completed at end of dest
+ *@n:integer parameter to compare index to
+ *Return: returns new concatenated string
  */
 
 char *_strncat(char *dest, char *src, int n)
 {
-	int i = 0, lenghtd = 0;
 
-	while (*(dest + lenghtd) != '\0')
-		lenghtd++;
-	for (i = 0; i < n && *(src + i) != '\0'; i++)
-	{
-		*(dest + lenghtd) = *(src + i);
-		lenghtd++;
-	}
+	int index = 0, dest_len = 0;
+
+	while (dest[index++])
+		dest_len++;
+
+	for (index = 0; src[index] && index < n; index++)
+		dest[dest_len++] = src[index];
+
 	return (dest);
+
 }
